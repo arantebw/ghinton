@@ -3,6 +3,7 @@ import os
 
 from dotenv import load_dotenv
 from google import genai
+from google.genai import types
 
 
 def main():
@@ -15,9 +16,10 @@ def main():
     except Exception:
         raise RuntimeError("API key is not found")
     client = genai.Client(api_key=api_key)
+    messages = [types.Content(role="user",parts=[types.Part(text=args.user_prompt)])]
     response = client.models.generate_content(
         model="gemini-2.5-flash",
-        contents=args.user_prompt,
+        contents=messages,
     )
     print(f"User prompt: {args.user_prompt}")
     if response.usage_metadata:
