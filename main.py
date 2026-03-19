@@ -8,7 +8,7 @@ from google.genai import types
 
 def main():
     load_dotenv()
-    parser = argparse.ArgumentParser(description="Ghinton Chatbot")
+    parser = argparse.ArgumentParser(description="Ghinton Code")
     parser.add_argument("user_prompt", type=str, help="User prompt")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose output")
     args = parser.parse_args()
