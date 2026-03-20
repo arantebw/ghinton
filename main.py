@@ -17,7 +17,7 @@ def main():
     except Exception:
         raise RuntimeError("API key is not found")
     client = genai.Client(api_key=api_key)
-    messages = [types.Content(role="user",parts=[types.Part(text=args.user_prompt)])]
+    messages = [types.Content(role="user", parts=[types.Part(text=args.user_prompt)])]
     response = client.models.generate_content(
         model="gemini-2.5-flash",
         contents=messages,
